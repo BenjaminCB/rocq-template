@@ -24,6 +24,11 @@
             vscodevim.vim
           ];
         };
+        settingsJson = builtins.toJSON {
+          "vsrocq.path" = "${pkgs.rocqPackages.vsrocq-language-server}/bin/vsrocqtop";
+          "vsrocq.completion.enable" = true;
+          "vsrocq.diagnostics.full" = true;
+        };
       in {
         packages = {
           default = pkgs.hello;
@@ -34,9 +39,18 @@
             rocqPackages.vsrocq-language-server
             rocq-core
             rocqPackages.stdlib
+            jq
           ];
 
           shellHook = ''
+            export VSROCQTOP_PATH="$(which vsrocqtop)"
+
+            mkdir -p .vscode
+            cat > .vscode/settings.json <<'JSON'
+            ${settingsJson}
+            JSON
+            echo "Wrote .vscode/settings.json"
+
             echo Welcome to rocq dev shell
           '';
         };
