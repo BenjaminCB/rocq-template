@@ -3,6 +3,9 @@
 The current version of vsrocq does not load _RocqProject. Therefore they are
 named using the old Coq, i.e _CoqProject etc.
 
+The .vscode settings also contains the nix generated path to vsrocqtop. Fell
+free to make changes to the file, but do not delete it.
+
 # What is included
 
 - A vscode with vsrocq installed and setup with the vsrocq-language-server.
