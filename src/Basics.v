@@ -5,7 +5,7 @@ Import ListNotations.
 Fixpoint mysum (xs : list nat) : nat :=
   match xs with
   | [] => 0
-  | x :: xs' => 1 + mysum xs'
+  | x :: xs' => x + mysum xs'
   end.
 
 Lemma sum_app :
