@@ -14,8 +14,3 @@ free to make changes to the file, but do not delete it.
   get access to any new definitions proofs etc.
 - A small example showing how a simple multi file setup with dependencies can be
   made.
-
-# What is not included
-
-- A showcase of how to use libraries, however many libraries should be easily
-  available through the nix store.
