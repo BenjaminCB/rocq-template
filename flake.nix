@@ -13,13 +13,27 @@
   }:
     flake-utils.lib.eachDefaultSystem (
       system: let
-        pkgs = nixpkgs.legacyPackages.${system};
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+        vscode = pkgs.vscode-with-extensions.override {
+          vscode = pkgs.vscode;
+          vscodeExtensions = with pkgs.vscode-extensions; [
+            rocq-prover.vsrocq
+            vscodevim.vim
+          ];
+        };
       in {
         packages = {
           default = pkgs.hello;
         };
         devShells.default = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
+            vscode
+            rocqPackages.vsrocq-language-server
+            rocq-core
+            rocqPackages.stdlib
           ];
 
           shellHook = ''
