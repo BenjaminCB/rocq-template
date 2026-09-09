@@ -1,0 +1,11 @@
+{
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "rocq",
+    "local-rag"
+  ],
+  "env": {
+    "MCP_TIMEOUT": "120000",
+    "MCP_TOOL_TIMEOUT": "300000"
+  }
+}

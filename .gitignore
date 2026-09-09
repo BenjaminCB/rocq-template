@@ -11,3 +11,12 @@ result-*
 *.vo
 *.vok
 *.vos
+.aider*
+rocq_mcp_cache*
+
+# Local RAG index and model cache
+lancedb/
+models/
+
+# Documents fed to the local-rag server
+docs/paper/*
